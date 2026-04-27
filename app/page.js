@@ -108,12 +108,6 @@ export default function Home() {
             different business department to produce practical, structured output.
           </p>
         </div>
-        <div className="api-card">
-          <h2>Run locally</h2>
-          <p className="note">
-            Start the dashboard with `npm run dev` and store your OpenAI API key in a local <code>.env</code> file.
-          </p>
-        </div>
       </header>
 
       <section className="grid">
