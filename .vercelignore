@@ -1,0 +1,13 @@
+node_modules
+.next
+.env
+.env.local
+.env.development
+.env.production
+.DS_Store
+README.md
+index.html
+styles.css
+script.js
+server.js
+package-lock.json

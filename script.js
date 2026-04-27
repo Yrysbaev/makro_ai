@@ -52,7 +52,6 @@ Make it professional, empathetic, and focused on resolving the issue.`,
   },
 };
 
-const apiKeyInput = document.getElementById('apiKey');
 const buttons = document.querySelectorAll('button[data-module]');
 
 buttons.forEach((button) => {
@@ -64,24 +63,17 @@ buttons.forEach((button) => {
     const inputElement = document.getElementById(`${moduleKey.replace(/([A-Z])/g, ' $1').trim().replace(/ /g, '')}Input`);
     const outputElement = document.getElementById(`${moduleKey.replace(/([A-Z])/g, ' $1').trim().replace(/ /g, '')}Output`);
     const promptText = module.prompt(inputElement.value.trim());
-    const apiKey = apiKeyInput.value.trim();
-
-    if (!apiKey) {
-      outputElement.textContent = 'Enter your OpenAI API key to run the demo.';
-      return;
-    }
 
     outputElement.textContent = 'Generating response...';
 
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('/api/openai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
+          model: 'gpt-4.1-nano',
           messages: [
             {
               role: 'system',
