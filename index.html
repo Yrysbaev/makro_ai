@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makro AI Assistant – Business Automation System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Makro AI Assistant Dashboard</span>
+        <h1>Makro AI Assistant – Business Automation System</h1>
+        <p>
+          Automate marketing, sales, support and analysis with role-based AI modules.
+          Each tool simulates a different business department to produce practical, structured output.
+        </p>
+      </div>
+      <div class="api-card">
+        <label for="apiKey">OpenAI API Key</label>
+        <input id="apiKey" type="password" placeholder="sk-..." />
+        <p class="note">
+          For demo use only. In production, keep your API key on a secure server.
+        </p>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card" id="product-generator-card">
+        <h2>1. Product Generator</h2>
+        <p>Generate description, selling points, target audience, and SEO keywords.</p>
+        <textarea id="productInput" placeholder="Enter product name or idea...">Turkish Baklava</textarea>
+        <button data-module="productGenerator">Generate Product Copy</button>
+        <pre id="productOutput" class="output" readonly></pre>
+      </article>
+
+      <article class="card" id="email-writer-card">
+        <h2>2. Email Writer</h2>
+        <p>Create a professional sales email instantly.</p>
+        <textarea id="emailInput" placeholder="Enter the email purpose or scenario...">Ask supplier for price list</textarea>
+        <button data-module="emailWriter">Write Email</button>
+        <pre id="emailOutput" class="output" readonly></pre>
+      </article>
+
+      <article class="card" id="caption-generator-card">
+        <h2>3. Caption Generator</h2>
+        <p>Generate Instagram caption ideas with hashtags.</p>
+        <textarea id="captionInput" placeholder="Enter the post topic...">New Turkish dessert launch</textarea>
+        <button data-module="captionGenerator">Create Caption</button>
+        <pre id="captionOutput" class="output" readonly></pre>
+      </article>
+
+      <article class="card" id="summarizer-card">
+        <h2>4. Text Summarizer</h2>
+        <p>Turn long text into a short structured summary.</p>
+        <textarea id="summaryInput" placeholder="Paste text to summarize...">Makro AI Assistant helps businesses automate daily operations using AI-trained role-based prompts. It reduces manual workload and improves communication quality across marketing, sales, and support.</textarea>
+        <button data-module="textSummarizer">Summarize Text</button>
+        <pre id="summaryOutput" class="output" readonly></pre>
+      </article>
+
+      <article class="card" id="reply-generator-card">
+        <h2>5. Customer Reply Generator</h2>
+        <p>Generate polite professional responses for customer support.</p>
+        <textarea id="replyInput" placeholder="Enter customer message or complaint...">Customer complains about late delivery</textarea>
+        <button data-module="customerReplyGenerator">Generate Reply</button>
+        <pre id="replyOutput" class="output" readonly></pre>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h3>How it works</h3>
+      <ul>
+        <li>User inputs data into a module</li>
+        <li>The system selects a role-based AI prompt</li>
+        <li>OpenAI processes the prompt through the API</li>
+        <li>Structured business output is displayed instantly</li>
+      </ul>
+      <h3>Innovation</h3>
+      <p>
+        Instead of using a single general AI, this system uses role-based prompt engineering to simulate real business departments,
+        making the outputs more specialized and practical.
+      </p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
