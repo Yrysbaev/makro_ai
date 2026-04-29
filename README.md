@@ -1,86 +1,219 @@
-# Makro AI Assistant Dashboard
+# Makro AI – Project Management Mode
 
-## Project Title
-Makro AI Assistant – Business Automation System
+**Advanced Software Project Management Course Project**
 
-## Project Description
-Makro AI Assistant is a multi-functional AI-powered dashboard designed to automate key business operations such as product marketing, communication, and customer support. The system uses role-based AI modules to simulate different departments like sales, marketing, and support, helping businesses save time and improve efficiency.
+## Project Overview
 
-## Project Objectives
-- Automate repetitive business tasks
-- Improve communication quality
-- Generate marketing content instantly
-- Support customer interaction
-- Provide structured business insights
+Makro AI is an AI-powered operations assistant for wholesale food distribution companies. This version extends the original application with comprehensive project management features, turning the invoice processing workflow into a structured, trackable project management system.
 
-## System Features
-1. Product Generator
-   - Generates description, selling points, target audience, SEO keywords
-   - Simulates a marketing department AI
-2. Email Writer
-   - Creates professional emails instantly
-   - Simulates a sales department AI
-3. Caption Generator
-   - Generates Instagram captions and hashtags
-   - Simulates a social media manager AI
-4. Text Summarizer
-   - Converts long text into short structured summaries
-   - Simulates an analyst AI
-5. Customer Reply Generator
-   - Generates polite, professional responses
-   - Simulates a customer support AI
+## Core Concept
 
-## System Architecture
-Simple version:
-- Frontend: Next.js React application
-- AI API: OpenAI via a secure server-side API route
-- Prompt-based logic for role specialization
+Instead of just processing invoices, the system treats each invoice as a **mini project** with:
+- Automatic task generation
+- Team assignments
+- Workflow stages
+- Progress tracking
+- Resource responsibility
 
-## Technologies Used
-- Next.js
-- React
-- HTML
-- CSS
-- OpenAI API
+## Key Features
 
-## How It Works
-1. User inputs data
-2. System selects AI module
-3. Prompt is generated based on role
-4. AI processes input via OpenAI
-5. Structured business output is displayed
+### 1. Advanced Mode: Invoice to Packing Slip
+- Upload vendor invoices (PDF or image)
+- AI extracts product names, quantities, case counts, and item details
+- System generates a professional, clean packing slip without prices
+- Suitable for warehouse and delivery team operations
 
-## Innovation
-Instead of using a single general AI, this system uses role-based prompt engineering to simulate real business departments, making the outputs more specialized and practical.
+### 2. Task Assignment System
+When an invoice is processed, the system automatically creates project tasks:
+- **Verify received items in warehouse** → Warehouse Manager
+- **Prepare packing slip** → Logistics Team
+- **Schedule delivery** → Delivery Coordinator
+- **Notify sales team about new arrivals** → Sales Manager
 
-## Demo Flow
-1. Open the dashboard
-2. Use Product Generator with "Turkish Baklava"
-3. Use Email Writer with "Ask supplier for price list"
-4. Use Customer Reply Generator with "Customer complains about late delivery"
-5. Conclude: "This system helps businesses automate daily operations using AI"
+Each task includes:
+- Task name and description
+- Assigned team/person
+- Status: Pending → In Progress → Done
+- Due date and priority level
 
-## Local Setup
-1. Install dependencies:
-   - `npm install`
-2. Copy `.env.example` to `.env`
-3. Set `OPENAI_API_KEY=your_openai_api_key_here` in `.env`
-4. Run the app locally:
-   - `npm run dev`
-5. Open the dashboard in your browser at `http://localhost:3000`
+### 3. Workflow Status Tracking
+Each invoice moves through project stages:
+1. **Received** - Invoice uploaded and initial processing started
+2. **Processing** - Items verified and packing slip generated
+3. **Ready for Delivery** - Inventory updated and delivery scheduled
+4. **Completed** - Delivery confirmed and all tasks done
 
-> The app now uses Next.js with a server-side API route so the OpenAI API key stays off the browser and out of source control.
+Kanban-style board with drag-and-drop functionality for stage management.
+
+### 4. Project Dashboard
+- Real-time overview of all invoices and their stages
+- Task statistics and metrics
+- Recent invoice activity
+- Quick access to all features
+
+## Pages & Components
+
+### Dashboard (`/`)
+- Overview of all invoices
+- Key metrics (total, completed, in processing, ready for delivery)
+- Recent invoice table with quick actions
+- Navigation to all features
+
+### Upload Invoice (`/upload`)
+- Vendor information input
+- Product data entry with AI extraction simulation
+- Add/remove products
+- Professional invoice processing form
+
+### Packing Slip Preview (`/packingslip`)
+- Clean, professional packing slip design
+- Product table without prices
+- Printable format for warehouse use
+- Auto-generated task list sidebar
+- Quick action buttons
+
+### Task Management (`/tasks`)
+- Comprehensive task board
+- Filter by invoice, assignee, or status
+- Update task status with dropdown
+- Task statistics
+- Priority and due date tracking
+
+### Workflow Tracking Board (`/workflow`)
+- Kanban-style columns for each stage
+- Drag-and-drop invoice cards between stages
+- Visual invoice summaries
+- Stage information cards
+
+## Technology Stack
+
+- **Framework:** Next.js 14.2.5
+- **UI Library:** React 18.3.1
+- **Styling:** Tailwind CSS 3.4.1
+- **Backend:** Next.js API routes (optional for real implementation)
+- **Data:** Mock data with React state management
+
+## Getting Started
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Open in browser
+http://localhost:3000
+```
+
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Project Structure
+
+```
+makro_ai/
+├── pages/
+│   ├── index.js           # Main app with state management
+│   └── _app.js            # App wrapper with layout
+├── components/
+│   ├── Layout.js          # Main layout wrapper
+│   ├── Header.js          # Navigation header
+│   ├── Dashboard.js       # Dashboard page
+│   ├── InvoiceUpload.js   # Invoice upload form
+│   ├── PackingSlipPreview.js  # Packing slip display
+│   ├── TaskManagement.js  # Task board
+│   └── WorkflowBoard.js   # Kanban workflow board
+├── globals.css            # Tailwind setup
+├── tailwind.config.js     # Tailwind configuration
+├── postcss.config.js      # PostCSS configuration
+└── package.json           # Dependencies
+```
+
+## Demo Flow for University Presentation
+
+1. **Open Dashboard**
+   - Show key metrics and invoice overview
+   - Explain the invoice-to-project concept
+
+2. **Upload Invoice**
+   - Demonstrate invoice upload form
+   - Show AI data extraction simulation
+   - Process a new invoice
+
+3. **View Packing Slip**
+   - Display the generated packing slip
+   - Show it's ready for warehouse printing
+   - Demonstrate auto-generated task list
+
+4. **Manage Tasks**
+   - Show all auto-generated tasks
+   - Update task statuses
+   - Explain team assignments
+
+5. **Workflow Board**
+   - Demonstrate drag-and-drop functionality
+   - Move invoices between stages
+   - Show visual project progress
+
+6. **Conclusion**
+   - "This system demonstrates how AI can support project management"
+   - "Turns a simple invoice process into a structured workflow"
+   - "Provides clear visibility and responsibility for all team members"
+
+## Features for Presentation
+
+✅ **Professional UI Design** - Clean, modern interface resembling business tools
+
+✅ **Functional Demo** - All pages and features are interactive with mock data
+
+✅ **Responsive Design** - Works on desktop, tablet, and mobile
+
+✅ **Drag-and-Drop** - Interactive Kanban board for workflow management
+
+✅ **Real-World Scenario** - Based on actual wholesale food distribution needs
+
+✅ **Project Management Elements**
+- Task assignment
+- Status tracking
+- Timeline/due dates
+- Resource management
+- Progress visualization
 
 ## Deployment
-This project is ready for deployment on Vercel.
 
-1. Push the repository to GitHub.
-2. Import the repo into Vercel.
-3. Configure an environment variable:
-   - `OPENAI_API_KEY`
-4. Deploy the app.
+Ready for deployment on Vercel:
 
-The app will run as a Next.js site and use the secure server-side API route to call OpenAI.
+```bash
+# Push to GitHub
+git push
 
-## Final Touch
-The app title has been updated to "Makro AI Assistant – Business Automation System".
+# Deploy on Vercel
+# Connect your GitHub repo to Vercel dashboard
+# Each push automatically deploys
+```
+
+## Future Enhancements
+
+- Real OpenAI API integration for invoice OCR
+- Backend database (MongoDB/PostgreSQL)
+- User authentication and role-based access
+- Real email notifications
+- Payment/pricing calculations
+- Reporting and analytics
+- Mobile app version
+
+## Author
+
+**Maksatbek Yrysbaev**  
+Makro AI Project – Advanced Software Project Management Course
+
+## License
+
+MIT License – Feel free to use this project for educational purposes.
